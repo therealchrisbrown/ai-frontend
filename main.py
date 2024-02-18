@@ -1,7 +1,7 @@
 import os
 import sys
 
-from taipy.gui import Gui, State, notify
+from taipy.gui import Gui, State, notify, Page
 import openai
 from typing import List, Tuple
 
@@ -171,7 +171,7 @@ past_prompts = []
 page = """
 <|layout|columns=300px 1|
 <|part|render=True|class_name=sidebar|
-# Taipy **Chat**{: .color-primary} # {: .logo-text}
+# OCS **Panther**{: .color-primary} # {: .logo-text}
 <|New Conversation|button|class_name=fullwidth plain|id=reset_app_button|on_action=reset_chat|>
 ### Previous activities ### {: .h5 .mt2 .mb-half}
 <|{selected_conv}|tree|lov={past_conversations}|class_name=past_prompts_list|multiple|adapter=tree_adapter|on_change=select_conv|>
@@ -198,4 +198,7 @@ if __name__ == "__main__":
 
     client = openai.Client(api_key=api_key)
 
-    Gui(page).run(debug=True, dark_mode=True, use_reloader=True)
+    gui = Gui(page)
+
+
+    gui.run(debug=True, dark_mode=True, use_reloader=True, port=8080)
