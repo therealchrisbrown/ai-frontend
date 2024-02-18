@@ -3,6 +3,7 @@ import sys
 
 from taipy.gui import Gui, State, notify
 import openai
+from typing import List, Tuple
 
 client = None
 context = "The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly.\n\nHuman: Hello, who are you?\nAI: I am an AI created by OpenAI. How can I help you today? "
@@ -132,7 +133,7 @@ def reset_chat(state: State) -> None:
     }
 
 
-def tree_adapter(item: list) -> [str, str]:
+def tree_adapter(item: List) -> Tuple[str, str]:
     """
     Converts element of past_conversations to id and displayed string
 
