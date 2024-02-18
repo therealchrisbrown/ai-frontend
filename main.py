@@ -1,7 +1,7 @@
 import os
 import sys
 
-from taipy.gui import Gui, State, notify, Page
+from taipy.gui import Gui, State, notify
 import openai
 from typing import List, Tuple
 
